@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playground</title>
+
+    <link rel="shortcut icon" href="assets/img/horse.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="assets/css/playground.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Codemirror import-->
+    <script src="assets/codemirror/codemirror-5.65.3/lib/codemirror.js"></script>
+    <link rel="stylesheet" href="assets/codemirror/codemirror-5.65.3/lib/codemirror.css">
+
+    <!-- Languages -->
+    <script src="assets/codemirror/codemirror-5.65.3/mode/python/python.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/mode/clike/clike.min.js"></script>
+
+    <!-- Autocomplete -->
+    <script src="assets/codemirror/codemirror-5.65.3/addon/hint/anyword-hint.js"></script>
+    <script src="assets/codemirror/codemirror-5.65.3/addon/hint/show-hint.js"></script>
+    <link rel="stylesheet" href="assets/codemirror/codemirror-5.65.3/addon/hint/show-hint.css">
+    <script src="assets/codemirror/codemirror-5.65.3/addon/edit/closebrackets.js"></script>
+
+    <!-- Themes -->
+    <link rel="stylesheet" href="assets/codemirror/codemirror-5.65.3/theme/abbott.css">
+    <link rel="stylesheet" href="assets/codemirror/codemirror-5.65.3/theme/dracula.css">
+    <link rel="stylesheet" href="assets/codemirror/codemirror-5.65.3/theme/material.css">
+</head>
+<body>
+
+   
+
+    <div class="hidden md:block py-20 px-28 flex flex-col">
+
+
+        <!-- NAVBAR  -->
+        <div class="navbar flex flex-col sm:flex-row items-center justify-between">
+            <div class="friends-solved flex flex-row basis-1/5 h-10 w-10 rounded-full mb-2 sm:mb-0">
+
+              <p class="pt-2 pl-5 basis-3/5 text-center sm:text-left"><span>9 </span> friends solved</p>
+
+
+              <div class="users-container flex flex-row basis-2/5 space-x-2 sm:space-x-[-12px]">
+
+                <div class="flex justify-center items-center">
+                  <img src="assets/img/akzhol.jpg" class="h-8 w-8 rounded-full">
+                </div>
+
+                <div class="flex justify-center items-center">
+                  <img src="assets/img/soska.jpg" class="h-8 w-8 rounded-full">
+                </div>
+                
+                <div class="flex justify-center items-center">
+                  <img src="assets/img/sqnzhqr.jpg" class="h-8 w-8 rounded-full">
+                </div>
+
+                <div class="flex justify-center items-center">
+                  <img src="assets/img/talgat.jpg" class="h-8 w-8 rounded-full">
+                </div>
+
+              </div>
+            </div>
+          
+            <a class="flex basis-3/5 justify-center items-center" href="/index.html">
+              <img src="assets/img/logo.png" width="150px">
+            </a>
+          
+            <div class="nav-right flex flex-col sm:flex-row basis-1/5 justify-end items-end space-x-4 sm:space-x-8 ">
+              <div class="streak flex flex-row">
+                <img src="assets/img/streak.png" class="h-9 w-9">
+                <p id="str">7</p>
+              </div>
+              <div class="user flex flex-row">
+                <img src="assets/img/akzhol.jpg" class="rounded-full h-9 w-9">
+                <p id="username">holymolly1337</p>
+              </div>
+            </div>
+        </div>
+
+
+        <div class="main flex flex-row pt-16">
+            <div class="problem-body flex flex-col basis-1/2">
+
+                <p class = "" id="problem-title">
+                    <span>414.</span> Weight the Tree
+                </p>
+
+                <div class="like-container flex flex-row pt-4">
+                    <p class = "py-2 px-5 rounded-3xl " id = "difficulty"> Medium </p>
+
+                    <div class="svg-container">
+                    
+                        <!-- myna imagetardy button qylu kerek, backend ushin -->
+
+                        <img class="svg-1 ml-8 mr-2" src="assets/img/like.png" width="30px">
+                        <img class="svg-2 ml-8 mr-2" src="assets/img/like-filled.png" width="30px">
+
+                        <p id="like-count"> 1.5K</p>
+
+                        <img class="svg-3 ml-4 mr-2" src="assets/img/dislike.svg" width="30px">
+                        <img class="svg-4 ml-4 mr-2" src="assets/img/dislike-filled.svg" width="30px">
+
+                        <p id="dislike-count"> 432</p>
+                        
+                    </div>
+
+                  
+                      
+                </div>
+
+                <div class="problem-description pt-12 flex flex-row">
+                    <p class = "pr-4 basis-3/5" id = "problem-text"> 
+                        You are given a tree of n vertices from 1 to n. A tree is a connected undirected graph without cycles.
+                        <br><br>
+                        For each i = 1, 2, 3, . . . , n, let w[i] be the weight of the i-th vertex. A vertex is called good if its weight is equal to the sum of the weights of all its neighbors.
+                        <br><br>
+                        Initially, the weights of all nodes are unassigned. Assign positive integer weights to each vertex of the tree, such that the number of good vertices in the tree is maximized. If there are multiple ways to do it, you have to find one that minimizes the sum of weights of all vertices in the tree. 
+                                               
+                    </p>
+
+
+                    <img class = "basis-2/5 rounded-md w-64 h-64" src="assets/img/">
+
+                </div>
+
+                <div class="problem-examples flex flex-col">
+                    <p class = "pt-12 pb-8" id="example-num">
+                        Example 1
+                    </p>
+
+                    <div class="in-out rounded-xl p-6">
+                        <div class="input-container flex flex-row">
+                            <span class="font-bold">Input: &nbsp;</span>
+
+                            <p id="input">
+                                nums = [3,0,1]
+                            </p>
+                        </div>
+
+                        
+
+                        <div class="output-container flex flex-row">
+                            <span class="font-bold">Output: &nbsp;</span>
+                            <p id = "output">
+                                2
+                            </p>
+                        </div>
+
+                        <div class="explanation-container flex flex-row">                           
+                            <span class="font-bold">Explanation:&nbsp;</span>
+
+                            <p id = "explanation">
+                                n = 3 since there are 3 numbers, all numbers are in the range [0,3]. 2 is the missing number in the range since it does not appear in nums.
+                            </p>
+                        </div>
+                        
+                        
+
+                        
+                    </div>
+                    
+                    
+                </div>
+
+                
+
+                
+            </div>
+
+            <div class="code-editor basis-1/2 ml-3">
+                <!-- code editor -->
+                <div class="btnbtn">
+                    <select id="lang" class="lang" onchange="change_language()">
+                        <option value="0">Java</option>
+                        <option value="1">Python</option>
+                        <option value="2">C++</option>
+                    </select>
+                    
+                    <select class="lang" id="theme" onchange="change_theme()">
+                        <option value="0">Default</option>
+                        <option value="1">Dracula</option>
+                        <option value="2">Material</option>
+                    </select>
+                    <input type="submit" value="▶  Run " class="tasksubmit mx-3" onclick="submit()">
+                </div>
+                <div class="code-area">
+                    <textarea id="samplecode" class="solutionbar" cols="85" rows="30"></textarea>
+                </div>
+            </div>
+        </div>
+
+            
+
+    </div>
+
+
+
+
+
+
+    <!-- Page for small devices -->
+    <div class="md:hidden">
+        <div class="logo-container flex justify-center">
+            <a href="/signup.html">
+                <img src="assets/img/logo.png" alt="Logo" width="200px">
+            </a>
+        </div>
+    
+        <p class = "pt-4 text-sm text-center text-gray-500">You can use our playground ONLY using laptop.</p>
+        
+    </div>
+    
+ 
+  
+
+
+    
+</body>
+<script src="assets/js/script.js"></script>
+</html>

@@ -69,28 +69,28 @@
               <img src="assets/img/logo.png" width="150px">
             </a>
           
-            <div class="nav-right flex flex-col sm:flex-row basis-1/5 justify-end items-end space-x-4 sm:space-x-8 ">
+            <div th:each:="user: ${user}" class="nav-right flex flex-col sm:flex-row basis-1/5 justify-end items-end space-x-4 sm:space-x-8 ">
               <div class="streak flex flex-row">
                 <img src="assets/img/streak.png" class="h-9 w-9">
-                <p id="str">7</p>
+                <p id="str" th:text="${user.streak}"></p>
               </div>
               <div class="user flex flex-row">
                 <img src="assets/img/akzhol.jpg" class="rounded-full h-9 w-9">
-                <p id="username">holymolly1337</p>
+                <p id="username" th:text="${user.name}"></p>
               </div>
             </div>
         </div>
 
 
         <div class="main flex flex-row pt-16">
-            <div class="problem-body flex flex-col basis-1/2">
+            <div th:each="problem : ${problem}" class="problem-body flex flex-col basis-1/2">
 
                 <p class = "" id="problem-title">
-                    <span>414.</span> Weight the Tree
+                    <span><p th:text="${problem.id}"></p></span><p th:text="${problem.name}"></p>
                 </p>
 
                 <div class="like-container flex flex-row pt-4">
-                    <p class = "py-2 px-5 rounded-3xl " id = "difficulty"> Medium </p>
+                    <p class = "py-2 px-5 rounded-3xl " id = "difficulty" th:text="${problem.difficulty}"></p>
 
                     <div class="svg-container">
                     
@@ -113,13 +113,8 @@
                 </div>
 
                 <div class="problem-description pt-12 flex flex-row">
-                    <p class = "pr-4 basis-3/5" id = "problem-text"> 
-                        You are given a tree of n vertices from 1 to n. A tree is a connected undirected graph without cycles.
-                        <br><br>
-                        For each i = 1, 2, 3, . . . , n, let w[i] be the weight of the i-th vertex. A vertex is called good if its weight is equal to the sum of the weights of all its neighbors.
-                        <br><br>
-                        Initially, the weights of all nodes are unassigned. Assign positive integer weights to each vertex of the tree, such that the number of good vertices in the tree is maximized. If there are multiple ways to do it, you have to find one that minimizes the sum of weights of all vertices in the tree. 
-                                               
+                    <p class = "pr-4 basis-3/5" id = "problem-text" th:text="${problem.desc}"> 
+                                           
                     </p>
 
 
